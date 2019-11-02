@@ -1,23 +1,24 @@
 import { LoggingService } from "./logging.service";
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 
 // This is added on the receiving service, not the calling service
 @Injectable()
 export class AccountsService {
     accounts = [
         {
-          name: 'Master Account',
-          status: 'active'
+            name: 'Master Account',
+            status: 'active'
         },
         {
-          name: 'Testaccount',
-          status: 'inactive'
+            name: 'Testaccount',
+            status: 'inactive'
         },
         {
-          name: 'Hidden Account',
-          status: 'unknown'
+            name: 'Hidden Account',
+            status: 'unknown'
         }
-      ];
+    ];
+    statusUpdated = new EventEmitter<string>();
 
     constructor(private loggingService: LoggingService) {
 
